@@ -1,0 +1,26 @@
+from pandas import read_csv
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import numpy as np
+
+data = read_csv('http://euclid.nmu.edu/~rappleto/Classes/CS295.Python/Examples/mpg-small.txt')
+data = data.values
+plot = make_subplots(rows=1,cols=2)
+mpg = np.array(data[:,0], dtype=np.float64)
+weight = np.array(data[:,4],dtype=np.float64)
+displacement = np.array(data[:,2],dtype=np.float64)
+plot.add_trace(
+	go.Scatter(
+		x = mpg,y = weight, mode = 'markers', name = 'Weight and MPG'
+	),
+	row = 1, col = 1
+)
+plot.add_trace(
+	go.Scatter(
+		x = displacement, y = mpg, mode = 'markers', name = 'Displacement and MPG'
+	),
+	row = 1, col = 2
+)
+plot.update_layout(height = 600, width = 1000, title_text = 'MPG Data Subplots')
+plot.show()
+	

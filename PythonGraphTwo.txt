@@ -1,0 +1,12 @@
+import numpy as np
+plt.grid(True)
+x = np.arange(-2*np.pi, 2*np.pi, 0.1)
+y = np.sin(x)
+z = np.cos(x)
+plt.plot(x,y, color = 'red')
+plt.plot(x,z, color = 'blue')
+plt.xlabel('0 to 2pi', fontname = 'Arial', fontsize=15)
+plt.ylabel('Bumps', fontname = 'Arial', fontsize=15)
+plt.title('Sin and Cos Waves', fontname = 'Arial', fontsize=15)
+plt.legend(['sin(x)', 'cos(x)'])
+plt.show()

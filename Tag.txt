@@ -1,0 +1,30 @@
+import random
+import numpy as np
+
+tagged = np.array((), dtype=int)
+untagged = np.zerps((1000,),dtype=int)
+for i in range(1000):
+	untagged[i] = i
+taggedNum = random.choice(untagged)
+tagged = np.append(tagged, taggedNum)
+index = np.argwhere(untagged == taggedNum)
+untagged = np.delete(untagged,index)
+
+def tagging(u,t):
+	day = 1
+	while len(u) > 0:
+		tAmount = len(t)
+		for j in range(tAmount):
+			if len(u) == 0:
+				print("day ", day, " -- tagged: ", len(t), " untagged: ", len(u))
+				return t
+			tNum = random.choice(u)
+			t = np.append(t, tNum)
+			ind = np.argwhere(u == tNum)
+			u = np.delete(u, ind)
+		print("day ", day, " --tagged: ", len(t), " untagged: ", len(u))
+		day = day + 1
+
+result = tagging(untagged, tagged)
+print(result)
+			

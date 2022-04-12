@@ -1,0 +1,52 @@
+from graphics import *
+import time
+
+win = GraphWin('Bouncing Ball',1000,500)
+x = 500
+y = 150
+a = 400
+b = 250
+va = -5
+vb = 0
+vx = 5
+vy = 0
+gravity = 9.81
+slice = 0.2
+cir1 = Circle(Point(x,y),25)
+cir1.setFill("yellow")
+cir1.draw(win)
+cir2 = Circle(Point(a,b),25)
+cir2.setFill("green")
+cir2.draw(win)
+
+while True:
+	newX = x + vx * slice
+	newY = y + vy * slice
+	cir1.move(newX - x, newY - y)
+	vy += gravity * slice
+	time.sleep(0.01)
+	x = newX
+	y = newY
+	newA = a + va * slice
+	newB = b + vb * slice
+	cir2.move(newA -a, newB - b)
+	vb += gravity * slice
+	time.sleep(0.01)
+	b = newB
+	a = newA
+	if y >= 499:
+		vy = -abs(vy)
+	if y <= 0:
+		vy = abs(vy)
+	if x >= 999:
+		vx = -abs(vx)
+	if x <= 0:
+		vx = abs(vx)
+	if b >= 499:
+		vb = -abs(vb)
+	if b <= 0:
+		vb = abs(vb)
+	if a >= 999:
+		va = -abs(va)
+	if a <= 0:
+		va = abs(va)

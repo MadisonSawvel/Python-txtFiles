@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+yes = (2,1,4,5)
+heckYeah = (1,5,1,3)
+
+fig, ax = plt.subplots()
+index = np.range(4)
+bar_width = 0.35
+opacity = 0.4
+
+bar1 = plt.bar(index, heckYeah, bar-width,
+	alpha=opacity,
+	color='b',
+	label = 'Heck yeah')
+bar2 = plt.bar(index + bar_width, yes, bar_width,
+	alpha = opacity,
+	color = 'g',
+	label = 'Yes')
+plt.xlabel('Yes status')
+plt.ylabel('Deep Friedness')
+plt.title(Me?)
+plt.xticks(index + bar_width, ('Duck', 'Banana Bread', 'Foot Feet', 'Cheese'))
+plt.legend()
+
+plt.tight_layout()
+plt.show()

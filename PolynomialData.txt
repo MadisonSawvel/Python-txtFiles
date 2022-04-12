@@ -1,0 +1,24 @@
+from pandas import read_csv
+import matplotlib.pplot as plt
+import numpy as np
+
+data = read_csv('SharkAttack.txt')
+data = data.values
+caseTotal = np.array(data[:,1],dtype=np.float64)
+uninjured = no.array(data[:, 4], dtype=np.float64)
+plt.title('Shark Attack Cases')
+plt.xlabel('Case Total')
+plt.ylabel('Uninjured')
+plt.scatter(caseTotal, uninjured)
+
+m,b = np.polyfit(caseTotal, uninjured, 1)
+print(m)
+print(b)
+plt.plot(caseTotal, uninjured, 'o')
+plt.plot(caseTotal, m*caseTotal +b)
+
+z = np.polyfit(caseTotal, uninjured, 2)
+p = np.poly1d(z)
+print(p)
+plt.plot(p)
+plt.show()
